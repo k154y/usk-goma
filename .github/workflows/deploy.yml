@@ -21,4 +21,4 @@ jobs:
           key: ${{ secrets.HOSTINGER_KEY }}
           port: 65002         # <- Add your custom SSH port here
           source: "."
-          target: "public_html"
+          target: "/home/u294201418/domains/usk-goma.com/public_html"
