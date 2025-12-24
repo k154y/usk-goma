@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stratégies - Université Simon Kimbangu</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Variables CSS */
+        :root {
+            --primary-color: #003366; /* Bleu universitaire */
+            --secondary-color: #FFD700; /* Or */
+            --accent-color: #E6B800;
+            --light-color: #F8F9FA;
+            --dark-color: #212529;
+            --gray-color: #6C757D;
+            --white-color: #FFFFFF;
+            --font-title: 'Playfair Display', serif;
+            --font-text: 'Roboto', sans-serif;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-text);
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: transparent;
+            color: var(--secondary-color);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+        }
+
+        .btn-small {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+
+        .section-title {
+            font-family: var(--font-title);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 15px auto;
+        }
+
+        /* Navigation bar */
+        .navbar {
+            background-color: var(--white-color);
+            box-shadow: var(--box-shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-family: var(--font-title);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-list {
+            display: flex;
+        }
+
+        .nav-list li {
+            margin-left: 30px;
+        }
+
+        .nav-list a {
+            font-weight: 500;
+            color: var(--dark-color);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-list a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .nav-list a:hover::after {
+            width: 100%;
+        }
+
+        .nav-list .active a {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .nav-list .active a::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+        }
+
+        .menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        /* Page Header */
+        .page-header {
+            height: 300px;
+            background: url('images/WhatsApp Image 2025-08-08 at 18.38.12_fe1fba82.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-top: 70px;
+        }
+
+        .page-header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 51, 102, 0.7);
+        }
+
+        .page-header .container {
+            position: relative;
+            z-index: 1;
+            color: var(--white-color);
+        }
+
+        .page-header h1 {
+            font-family: var(--font-title);
+            font-size: 3rem;
+        }
+
+        .page-content {
+            padding: 60px 0;
+        }
+
+        /* Strategies Section */
+        .strategies-section {
+            padding: 60px 0;
+        }
+
+        .strategy-block {
+            margin-bottom: 50px;
+        }
+
+        .strategy-block h2 {
+            font-family: var(--font-title);
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .strategy-block h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        .strategy-block p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .strategy-block ul {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+
+        .strategy-block li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .strategy-block li::before {
+            content: '•';
+            color: var(--secondary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        .numbered-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 25px 0;
+        }
+
+        .numbered-list li {
+            margin-bottom: 15px;
+            padding-left: 35px;
+            position: relative;
+            counter-increment: list-counter;
+        }
+
+        .numbered-list li::before {
+            content: counter(list-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 28px;
+            height: 28px;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .highlight-box {
+            background-color: rgba(0, 51, 102, 0.05);
+            border-left: 4px solid var(--secondary-color);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            padding: 60px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-title);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .legal-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .legal-links a {
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .legal-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .features .container {
+                flex-direction: column;
+            }
+            
+            .feature-card {
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .nav-list {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--white-color);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 40px;
+                transition: var(--transition);
+            }
+            
+            .nav-list.active {
+                left: 0;
+            }
+            
+            .nav-list li {
+                margin: 15px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .legal-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .news-grid, .faculties-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .numbered-list li {
+                padding-left: 30px;
+            }
+            
+            .numbered-list li::before {
+                width: 24px;
+                height: 24px;
+                font-size: 0.9rem;
+            }
+            
+            .highlight-box {
+                padding: 15px;
+            }
+        }
+
+
+
+        /* Styles pour le menu déroulant */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--white-color);
+    min-width: 200px;
+    box-shadow: var(--box-shadow);
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: var(--transition);
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
+    color: var(--dark-color);
+    transition: var(--transition);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding-left: 25px;
+}
+
+/* Styles pour le menu déroulant en mode mobile */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background-color: transparent;
+        display: none;
+        margin-top: 10px;
+    }
+    
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+    
+    .dropdown-menu a {
+        padding: 10px 15px 10px 30px;
+        border-bottom: none;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/WhatsApp Image 2025-08-24 at 11.18.15_06f16f93.jpg" alt="Logo de l'Université Simon Kimbangu">
+                <span>Université Simon Kimbangu de Goma</span>
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-list">
+               <li class="dropdown active">
+                    <a href="index.html">Accueil</a>
+                    <ul class="dropdown-menu">
+                         <li><a href="historique.html">Historique</a></li>
+                        <li><a href="missions.html">Missions</a></li>
+                        <li><a href="vision.html">Vision</a></li>
+                        <li><a href="devise.html">valeurs</a></li>
+                        <li><a href="objectifs.html">Objectifs</a></li>
+                        <li><a href="strategies.html">Stratégies</a></li>
+                        
+                    </ul>
+                </li>
+               
+                <li class="dropdown active">
+                    <a href="#">Admissions</a>
+                    <ul class="dropdown-menu">
+                         <li><a href="facultes.html">Critères d’admission à la faculté</a></li>
+                       <li><a href="admissions.html#Processus">Processus d’admission</a></li>
+                         <li><a href="admissions.html#date">Dates importantes</a></li>
+                         <li><a href="admissions.html#fees">Frais de scolarité</a></li>
+                        
+                    </ul>
+                </li>
+                <li class="dropdown active">
+                    <a href="#">faculté</a>
+                    <ul class="dropdown-menu">
+                      <li><h5><a href="#">Faculté de Droit</a></li>
+                       <li><h5><a href="#">Faculté de Médecine</a></li>
+                       <li><h5><a href="#">Techniques médicales</a></li>
+                       <li><h5><a href="#">Faculté des Sciences sociales, politiques et administratives</a></li>
+                       <li><h5><a href="#">Faculté des Sciences économiques et de gestion</a></li>                                     <li><h5><a href="#">Faculté des sciences informatiques</a></li>
+                       <li><h5><a href="#">Faculté de Santé publique</a></li>                                       <li><h5><a href="#">Faculté de théologie</a></li>
+                       <li><h5><a href="#">Sciences de l’éducation</a></li>
+                       <li><h5><a href="#">Bâtiment et construction</a></li>
+                         <li><a href="#">Agrobusiness </a></li>
+                          <li><a href="#">Sciences agronomiques</a></li>
+                              <li><a href="#">Tourisme</a></li>
+                                     <li><a href="#">Electro mécanique</a></li>
+                                              <li><a href="#">Technologie et informatique </a></li>
+                                                                   <li><a href="#"></a></li>
+                        
+                        
+                    </ul>
+                </li>
+                <li><a href="news.html">Actualités</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- En-tête de page -->
+    <header class="page-header">
+        <div class="page-header-overlay"></div>
+        <div class="container">
+            <h1>Nos Stratégies</h1>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <main class="page-content">
+        <section class="strategies-section">
+            <div class="container">
+                <div class="strategy-block">
+                    <h2>Nos stratégies, nos forces et nos moyens</h2>
+                    <p>L’engagement envers nos communautés</p>
+                    <p>Nos réalisations, nos multiples partenariats, particulièrement ceux avec les hôpitaux d’enseignement affiliés, et la contribution des membres de la communauté universitaire et de nos anciens à la société nous permettent de jouer un rôle unique dans le développement économique et social de la région de la capitale fédérale, en particulier par le transfert des savoirs, et de cultiver ainsi un sentiment de fierté qui déborde largement notre campus.</p>
+                    <p>Nous reconnaissons l’importance de raffermir l’engagement de nos anciens envers l’Université et d’entretenir une relation durable avec eux. Ces relations contribuent à la poursuite de notre mission. Les anciens représentent un véritable réseau d’ambassadeurs locaux, nationaux et internationaux qui nous aide à tisser des liens importants partout dans le monde et qui enrichit encore plus l’expérience universitaire des étudiants actuels.</p>
+                    <p>De plus, beaucoup de nos activités bénéficient de l’apport de notre personnel professoral et administratif retraité, qui s’implique dans les différents aspects de la vie universitaire et contribue à l’amélioration de l’expérience étudiante.</p>
+                    <p>Nous reconnaissons que nos multiples partenariats jouent un rôle essentiel dans la réalisation de notre mission, qu’ils nous assurent une place privilégiée au coeur de la capitale fédérale et qu’ils contribuent à notre rayonnement local, national et international. Ces partenariats avec les gouvernements et leurs agencies, le monde des affaires, l’entreprise privée, le milieu communautaire, le secteur de la santé et les employeurs du régime d’enseignement coopératif accroissent notre contribution à la société et ouvrent des perspectives de carrière stimulantes à nos diplômés.</p>
+                </div>
+
+                <div class="strategy-block">
+                    <h2>Notre leadership en matière de développement durable</h2>
+                    <p>Le passage de notre monde à la durabilité environnementale et sociale est sans doute un des plus grands défis du 21e siècle. Or, nous jouons un rôle de premier plan dans la mise au point de solutions novatrices aux problèmes environnementaux et la formation des leaders de demain dans ce domaine.</p>
+                    <p>Nous répondons à la demande croissante de la part des étudiants et des employeurs à cet égard. Nous poursuivons le regroupement de nos forces en recherche dans ce domaine par la création de programmes d’études supérieures multidisciplinaires et de nouvelles chaires. Ce faisant, nous contribuons activement à bâtir une société durable, en renforçant la capacité de l’Université de mettre en lumière des problèmes environnementaux et d’y apporter des solutions.</p>
+                    <p>Nos efforts pour réduire notre empreinte environnementale font de nous un chef de file national, socialement responsable en matière de développement durable. À cet égard, nous sommes le campus le plus actif au pays, grâce à nos programmes intensifs de recyclage, à la place que nous faisons aux piétons et cyclistes ainsi qu’à la façon dont nous gérons les espaces verts.</p>
+                </div>
+
+                <div class="strategy-block">
+                    <h2>Gestion stratégique des effectifs scolaires</h2>
+                    <p>Nous visons une croissance modérée de notre population étudiante, de façon à atteindre nos objectifs stratégiques tout en garantissant la qualité de l’expérience universitaire.</p>
+                </div>
+
+               
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Université Simon Kimbangu</h4>
+                    <p>Nord Kivu, Goma
+Entrée President</p>
+                    <p>info@usk-goma.edu</p>
+                    <p>+243 843 785 325</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        
+                       
+                        <li><a href="admissions.html">Admissions</a></li>
+                         <li><a href="facultes.html">faculté</a></li>
+                         <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Suivez-nous</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Université Simon Kimbangu de Goma - Tous droits réservés</p>
+                <div class="legal-links">
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Confidentialité</a>
+                    <a href="#">Cookies</a>
+                    <a href="#">Accessibilité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.querySelector('.nav-list');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navList.classList.toggle('active');
+        });
+
+        // Fermer le menu en cliquant sur un lien
+        document.querySelectorAll('.nav-list a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                navList.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

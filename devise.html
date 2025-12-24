@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos - Université Simon Kimbangu</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Le CSS reste identique */
+        /* Variables CSS */
+:root {
+    --primary-color: #003366; /* Bleu universitaire */
+    --secondary-color: #FFD700; /* Or */
+    --accent-color: #E6B800;
+    --light-color: #F8F9FA;
+    --dark-color: #212529;
+    --gray-color: #6C757D;
+    --white-color: #FFFFFF;
+    --font-title: 'Playfair Display', serif;
+    --font-text: 'Roboto', sans-serif;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-text);
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    border: 2px solid var(--secondary-color);
+}
+
+.btn-secondary:hover {
+    background-color: transparent;
+    color: var(--secondary-color);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.btn-small {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+}
+
+.section-title {
+    font-family: var(--font-title);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    text-align: center;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    margin: 15px auto;
+}
+
+/* Navigation bar */
+.navbar {
+    background-color: var(--white-color);
+    box-shadow: var(--box-shadow);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.nav-list {
+    display: flex;
+}
+
+.nav-list li {
+    margin-left: 30px;
+}
+
+.nav-list a {
+    font-weight: 500;
+    color: var(--dark-color);
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-list a:hover {
+    color: var(--primary-color);
+}
+
+.nav-list a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: var(--transition);
+}
+
+.nav-list a:hover::after {
+    width: 100%;
+}
+
+.nav-list .active a {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.nav-list .active a::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    transition: var(--transition);
+}
+
+/* Page Header */
+.page-header {
+    height: 300px;
+    background: url('images/WhatsApp Image 2025-08-08 at 18.38.12_fe1fba82.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: 70px;
+}
+
+.page-header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 51, 102, 0.7);
+}
+
+.page-header .container {
+    position: relative;
+    z-index: 1;
+    color: var(--white-color);
+}
+
+.page-header h1 {
+    font-family: var(--font-title);
+    font-size: 3rem;
+}
+
+.page-content {
+    padding: 60px 0;
+}
+
+/* About Section */
+.about-section {
+    padding: 60px 0;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-text h2 {
+    font-family: var(--font-title);
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+}
+
+.about-image {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.about-image img {
+    transition: var(--transition);
+}
+
+.about-image:hover img {
+    transform: scale(1.05);
+}
+
+.mission-section {
+    background-color: var(--light-color);
+    padding: 60px 0;
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.mission-card {
+    background-color: var(--white-color);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+}
+
+.mission-card i {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.mission-card h3 {
+    font-family: var(--font-title);
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.values-section {
+    padding: 60px 0;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.value-card {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: var(--white-color);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+}
+
+.value-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background-color: rgba(0, 51, 102, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.value-icon i {
+    font-size: 2rem;
+    color: var(--secondary-color);
+}
+
+.value-card h3 {
+    font-family: var(--font-title);
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 60px 0 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-col h4 {
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--secondary-color);
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    transition: var(--transition);
+}
+
+.footer-col ul li a:hover {
+    color: var(--secondary-color);
+    padding-left: 5px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.legal-links {
+    display: flex;
+    gap: 20px;
+}
+
+.legal-links a {
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.legal-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+    
+    .features .container {
+        flex-direction: column;
+    }
+    
+    .feature-card {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .nav-list {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: var(--white-color);
+        flex-direction: column;
+        align-items: center;
+        padding-top: 40px;
+        transition: var(--transition);
+    }
+    
+    .nav-list.active {
+        left: 0;
+    }
+    
+    .nav-list li {
+        margin: 15px 0;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .legal-links {
+        justify-content: center;
+    }
+    
+    /* About page responsive */
+    .about-grid, .mission-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-image {
+        order: -1;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .news-grid, .faculties-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+/* Styles pour le menu déroulant */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--white-color);
+    min-width: 200px;
+    box-shadow: var(--box-shadow);
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: var(--transition);
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
+    color: var(--dark-color);
+    transition: var(--transition);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding-left: 25px;
+}
+
+/* Styles pour le menu déroulant en mode mobile */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background-color: transparent;
+        display: none;
+        margin-top: 10px;
+    }
+    
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+    
+    .dropdown-menu a {
+        padding: 10px 15px 10px 30px;
+        border-bottom: none;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/WhatsApp Image 2025-08-24 at 11.18.15_06f16f93.jpg" alt="Logo de l'Université Simon Kimbangu">
+                <span>Université Simon Kimbangu de Goma</span>
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-list"> <li class="dropdown active">
+                    <a href="index.html">Accueil</a>
+                    <ul class="dropdown-menu">
+                         <li><a href="historique.html">Historique</a></li>
+                        <li><a href="missions.html">Missions</a></li>
+                        <li><a href="vision.html">Vision</a></li>
+                        <li><a href="devise.html">valeurs</a></li>
+                        <li><a href="objectifs.html">Objectifs</a></li>
+                        <li><a href="strategies.html">Stratégies</a></li>
+                        
+                    </ul>
+                </li>
+                
+               
+        
+                <li class="dropdown active">
+                    <a href="#">Admissions</a>
+                    <ul class="dropdown-menu">
+                         <li><a href="facultes.html">Critères d’admission à la faculté</a></li>
+                       <li><a href="admissions.html#Processus">Processus d’admission</a></li>
+                         <li><a href="admissions.html#date">Dates importantes</a></li>
+                         <li><a href="admissions.html#fees">Frais de scolarité</a></li>
+                        
+                    </ul>
+                </li>
+              <li class="dropdown active">
+                    <a href="#">faculté</a>
+                    <ul class="dropdown-menu">
+                      <li><h5><a href="#">Faculté de Droit</a></li>
+                       <li><h5><a href="#">Faculté de Médecine</a></li>
+                       <li><h5><a href="#">Techniques médicales</a></li>
+                       <li><h5><a href="#">Faculté des Sciences sociales, politiques et administratives</a></li>
+                       <li><h5><a href="#">Faculté des Sciences économiques et de gestion</a></li>                                     <li><h5><a href="#">Faculté des sciences informatiques</a></li>
+                       <li><h5><a href="#">Faculté de Santé publique</a></li>                                       <li><h5><a href="#">Faculté de théologie</a></li>
+                       <li><h5><a href="#">Sciences de l’éducation</a></li>
+                       <li><h5><a href="#">Bâtiment et construction</a></li>
+                         <li><a href="#">Agrobusiness </a></li>
+                          <li><a href="#">Sciences agronomiques</a></li>
+                              <li><a href="#">Tourisme</a></li>
+                                     <li><a href="#">Electro mécanique</a></li>
+                                              <li><a href="#">Technologie et informatique </a></li>
+                                                                   <li><a href="#"></a></li>
+                        
+                        
+                    </ul>
+                </li>
+                <li><a href="news.html">Actualités</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- En-tête de page -->
+    <header class="page-header">
+        <div class="page-header-overlay"></div>
+        <div class="container">
+            <h1>À propos de nous</h1>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <main class="page-content">
+    
+        <section class="values-section">
+            <div class="container">
+                <h2>Nos valeurs</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Nous plaçons les étudiants au cœur de notre mission éducative</h3>
+                        <p>Tous nos efforts visent à encourager les étudiants à étendre leur savoir, à découvrir leur créativité et à développer leur sens critique. Notre objectif est d’en faire des personnes épanouies et des citoyens engagés, capables de contribuer à la société et de devenir des leaders.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Nous encourageons la réalisation individuelle et collective de notre personnel. </h3>
+                        <p>Nous encourageons et facilitons l’épanouissement et le bien-être de tout notre personnel. 
+                            Nous voulons créer un milieu où ils peuvent se réaliser, un milieu caractérisé par le respect, la collégialité, la collaboration et la transparence.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3> La création et la diffusion du savoir sont notre raison d’être. </h3>
+                        <p>Nous poursuivons l’excellence en matière d’apprentissage et de découverte. C’est sur cette base que notre réputation s’est bâtie et qu’elle se développera.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Nous avons la responsabilité de faire la promotion du bilinguisme. </h3>
+                        <p>Nous jouons un rôle central dans l’avancement du bilinguisme, tout en offrant des services et des programmes de haut calibre.. 
+                            Nous assumons un leadership sur les questions de langue.</p>
+                    </div>
+
+
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3> Nous valorisons et inculquons une culture de service et de responsabilité civique  </h3>
+                        <p>Nous aidons à renforcer la société en combinant savoir et mission sociale. Nous nous mettons au service des autres et encourageons les partenariats communautaires visant l’apprentissage et la découverte. Nous défendons les principes de la liberté universitaire, de l’égalité, de la diversité culturelle,
+                             de l’intégrité, du respect des autres et du développement durable.</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Université Simon Kimbangu</h4>
+                    <p>Nord Kivu, Goma
+Entrée President</p>
+                    <p>info@usk-goma.edu</p>
+                    <p>+243 843 785 325</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        
+                       
+                        <li><a href="admissions.html">Admissions</a></li>
+                         <li><a href="facultes.html">faculté</a></li>
+                         <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Suivez-nous</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Université Simon Kimbangu de Goma - Tous droits réservés</p>
+                <div class="legal-links">
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Confidentialité</a>
+                    <a href="#">Cookies</a>
+                    <a href="#">Accessibilité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

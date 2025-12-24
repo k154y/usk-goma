@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objectifs Stratégiques - Université Simon Kimbangu</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Le CSS reste identique */
+        /* Variables CSS */
+:root {
+    --primary-color: #003366; /* Bleu universitaire */
+    --secondary-color: #FFD700; /* Or */
+    --accent-color: #E6B800;
+    --light-color: #F8F9FA;
+    --dark-color: #212529;
+    --gray-color: #6C757D;
+    --white-color: #FFFFFF;
+    --font-title: 'Playfair Display', serif;
+    --font-text: 'Roboto', sans-serif;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-text);
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    border: 2px solid var(--secondary-color);
+}
+
+.btn-secondary:hover {
+    background-color: transparent;
+    color: var(--secondary-color);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.btn-small {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+}
+
+.section-title {
+    font-family: var(--font-title);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    text-align: center;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    margin: 15px auto;
+}
+
+/* Navigation bar */
+.navbar {
+    background-color: var(--white-color);
+    box-shadow: var(--box-shadow);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.nav-list {
+    display: flex;
+}
+
+.nav-list li {
+    margin-left: 30px;
+}
+
+.nav-list a {
+    font-weight: 500;
+    color: var(--dark-color);
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-list a:hover {
+    color: var(--primary-color);
+}
+
+.nav-list a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: var(--transition);
+}
+
+.nav-list a:hover::after {
+    width: 100%;
+}
+
+.nav-list .active a {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.nav-list .active a::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    transition: var(--transition);
+}
+
+/* Page Header */
+.page-header {
+    height: 300px;
+    background: url('images/WhatsApp Image 2025-08-08 at 18.38.12_fe1fba82.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: 70px;
+}
+
+.page-header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 51, 102, 0.7);
+}
+
+.page-header .container {
+    position: relative;
+    z-index: 1;
+    color: var(--white-color);
+}
+
+.page-header h1 {
+    font-family: var(--font-title);
+    font-size: 3rem;
+}
+
+.page-content {
+    padding: 60px 0;
+}
+
+/* About Section */
+.about-section {
+    padding: 60px 0;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-text h2 {
+    font-family: var(--font-title);
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+}
+
+.about-image {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.about-image img {
+    transition: var(--transition);
+}
+
+.about-image:hover img {
+    transform: scale(1.05);
+}
+
+.mission-section {
+    background-color: var(--light-color);
+    padding: 60px 0;
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.mission-card {
+    background-color: var(--white-color);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+}
+
+.mission-card i {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.mission-card h3 {
+    font-family: var(--font-title);
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.values-section {
+    padding: 60px 0;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.value-card {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: var(--white-color);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+}
+
+.value-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background-color: rgba(0, 51, 102, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.value-icon i {
+    font-size: 2rem;
+    color: var(--secondary-color);
+}
+
+.value-card h3 {
+    font-family: var(--font-title);
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+/* Objectifs Section */
+.objectifs-section {
+    padding: 60px 0;
+}
+
+.objectif-intro {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.objectif-intro h2 {
+    font-family: var(--font-title);
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.objectif-container {
+    margin-bottom: 60px;
+}
+
+.objectif-header {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 20px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.objectif-header h3 {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.objectif-header i {
+    font-size: 2rem;
+    color: var(--secondary-color);
+}
+
+.objectif-content {
+    background-color: var(--white-color);
+    padding: 30px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: var(--box-shadow);
+}
+
+.objectif-content p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.objectif-list {
+    margin-left: 20px;
+    margin-bottom: 25px;
+}
+
+.objectif-list li {
+    margin-bottom: 10px;
+    list-style-type: decimal;
+    line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 60px 0 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-col h4 {
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--secondary-color);
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    transition: var(--transition);
+}
+
+.footer-col ul li a:hover {
+    color: var(--secondary-color);
+    padding-left: 5px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.legal-links {
+    display: flex;
+    gap: 20px;
+}
+
+.legal-links a {
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.legal-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+    
+    .features .container {
+        flex-direction: column;
+    }
+    
+    .feature-card {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .nav-list {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: var(--white-color);
+        flex-direction: column;
+        align-items: center;
+        padding-top: 40px;
+        transition: var(--transition);
+    }
+    
+    .nav-list.active {
+        left: 0;
+    }
+    
+    .nav-list li {
+        margin: 15px 0;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .legal-links {
+        justify-content: center;
+    }
+    
+    /* About page responsive */
+    .about-grid, .mission-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-image {
+        order: -1;
+    }
+    
+    .objectif-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .objectif-header h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .news-grid, .faculties-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .objectif-content {
+        padding: 20px;
+    }
+    
+    .objectif-list {
+        margin-left: 15px;
+    }
+}
+
+
+
+/* Styles pour le menu déroulant */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--white-color);
+    min-width: 200px;
+    box-shadow: var(--box-shadow);
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: var(--transition);
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
+    color: var(--dark-color);
+    transition: var(--transition);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding-left: 25px;
+}
+
+/* Styles pour le menu déroulant en mode mobile */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background-color: transparent;
+        display: none;
+        margin-top: 10px;
+    }
+    
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+    
+    .dropdown-menu a {
+        padding: 10px 15px 10px 30px;
+        border-bottom: none;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/WhatsApp Image 2025-08-24 at 11.18.15_06f16f93.jpg" alt="Logo de l'Université Simon Kimbangu">
+                <span>Université Simon Kimbangu de Goma</span>
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-list">
+           <li class="dropdown active">
+                    <a href="index.html">Accueil</a>
+                    <ul class="dropdown-menu">
+                         <li><a href="historique.html">Historique</a></li>
+                        <li><a href="missions.html">Missions</a></li>
+                        <li><a href="vision.html">Vision</a></li>
+                        <li><a href="devise.html">valeurs</a></li>
+                        <li><a href="objectifs.html">Objectifs</a></li>
+                        <li><a href="strategies.html">Stratégies</a></li>
+                        
+                    </ul>
+                </li>
+               
+           
+                <li class="dropdown active">
+                    <a href="#">Admissions</a>
+                    <ul class="dropdown-menu">
+                         <li><a href="facultes.html">Critères d’admission à la faculté</a></li>
+                       <li><a href="admissions.html#Processus">Processus d’admission</a></li>
+                         <li><a href="admissions.html#date">Dates importantes</a></li>
+                         <li><a href="admissions.html#fees">Frais de scolarité</a></li>
+                        
+                    </ul>
+                </li>
+               <li class="dropdown active">
+                    <a href="#">faculté</a>
+                    <ul class="dropdown-menu">
+                      <li><h5><a href="#">Faculté de Droit</a></li>
+                       <li><h5><a href="#">Faculté de Médecine</a></li>
+                       <li><h5><a href="#">Techniques médicales</a></li>
+                       <li><h5><a href="#">Faculté des Sciences sociales, politiques et administratives</a></li>
+                       <li><h5><a href="#">Faculté des Sciences économiques et de gestion</a></li>                                     <li><h5><a href="#">Faculté des sciences informatiques</a></li>
+                       <li><h5><a href="#">Faculté de Santé publique</a></li>                                       <li><h5><a href="#">Faculté de théologie</a></li>
+                       <li><h5><a href="#">Sciences de l’éducation</a></li>
+                       <li><h5><a href="#">Bâtiment et construction</a></li>
+                         <li><a href="#">Agrobusiness </a></li>
+                          <li><a href="#">Sciences agronomiques</a></li>
+                              <li><a href="#">Tourisme</a></li>
+                                     <li><a href="#">Electro mécanique</a></li>
+                                              <li><a href="#">Technologie et informatique </a></li>
+                                                                   <li><a href="#"></a></li>
+                        
+                        
+                    </ul>
+                </li>
+                <li><a href="news.html">Actualités</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- En-tête de page -->
+    <header class="page-header">
+        <div class="page-header-overlay"></div>
+        <div class="container">
+            <h1>Objectifs</h1>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <main class="page-content">
+        <section class="objectifs-section">
+            <div class="container">
+                <div class="objectif-intro">
+                    <h2>Nos quatre objectifs </h2>
+                </div>
+
+                <!-- Objectif 1 -->
+                <div class="objectif-container">
+                    <div class="objectif-header">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Objectif 1: Une expérience étudiante riche et inspirante</h3>
+                    </div>
+                    <div class="objectif-content">
+                        <p>Notre population étudiante a accès à un large éventail de programmes stimulants offerts par des professeurs qui excellent en enseignement et en recherche. Le tout contribue à une expérience universitaire sans pareille, en constante amélioration, qui nous place dans le peloton de tête des universités de recherche en RDC et fait de plus en plus de l’Université Simon Kimbangu une destination de choix pour les meilleurs étudiants au pays.</p>
+                        <p>La qualité de l’expérience étudiante, tant au premier cycle qu’aux études supérieures, est au cœur de Destination 2030. Cet engagement implique qu’il faudra porter une attention soutenue, entre autres, aux interactions avec les professeurs, le personnel et les autres étudiants, à la promotion d’une culture d’engagement et de fierté, à la mise en place d’initiatives qui stimulent l’apprentissage et enrichissent la vie étudiante ainsi qu’à l’excellence des services et du soutien offerts.</p>
+                        <p>Nous offrirons une expérience universitaire marquante, notamment en incitant les étudiants à participer à une vaste gamme d’activités scolaires, telles que des expériences scientifiques, des projets de recherche, des programmes d’enseignement coopératif, des séminaires de première année, des groupes de discussion, des stages d’apprentissage expérientiel, des études de cas, des échanges internationaux, des projets de classe sur le terrain, des expériences d’apprentissage interprofessionnel et des projets de fin d’études. Les étudiants auront aussi l’occasion de prendre part à des activités communautaires, au pays et partout dans le monde, entre autres grâce à notre nouveau Centre d’engagement mondial et communautaire. Ce faisant, nous leur ferons prendre conscience de leur responsabilité d’aider à bâtir un monde meilleur et leur offrirons les outils qui leur permettront de continuer à se perfectionner, à contribuer à la société et à apprendre toute leur vie.</p>
+                        
+                        <p>Afin d’enrichir le milieu d’apprentissage à l’intérieur et à l’extérieur de la salle de classe, nous allons :</p>
+                        <ol class="objectif-list">
+                            <li>promouvoir la qualité de l’enseignement dans le cadre de notre culture institutionnelle;</li>
+                            <li>revoir et réviser les cursus au besoin afin de nous assurer que les volets international et du développement durable enrichissent les programmes d’études;</li>
+                            <li>multiplier les interactions étudiants-professeurs, en appuyant et en encouraging les professeurs dans leurs rôles d’enseignants, de conseillers, de tuteurs et de mentors;</li>
+                            <li>appuyer les professeurs dans leur rôle de directeurs de thèse et dans la formation de la prochaine génération de chercheurs;</li>
+                            <li>créer des « chaires » d’enseignement universitaires et des communautés d’apprentissage afin d’améliorer les pratiques pédagogiques des professeurs qui doivent, par exemple, enseigner à de grands groupes ou animer des séminaires;</li>
+                            <li>veiller à utiliser les technologies les plus efficaces pour appuyer l’enseignement et nous adapter aux divers styles d’apprentissage;</li>
+                            <li>faciliter le développement professionnel de professeurs désirant se consacrer à l’innovation en enseignement et à la recherche en pédagogie;</li>
+                            <li>promouvoir l’importance de la participation des professeurs permanents à l’enseignement des cours de base.</li>
+                        </ol>
+                        
+                        <p>Afin d’aider les étudiants à enrichir leur expérience d’apprentissage, nous allons :</p>
+                        <ol class="objectif-list" start="9">
+                            <li>soutenir la création de réseaux sociaux et de communautés d’apprentissage;</li>
+                            <li>fournir davantage d’espaces de travail, d’étude et de rencontre;</li>
+                            <li>multiplier les activités scolaires et parascolaires qui encouragent la participation (concours, événements sportifs, conférences, colloques, etc.) et donner à tous les membres de notre communauté des occasions de mener une vie active et en santé;</li>
+                            <li>augmenter le nombre de places en résidence afin qu’une proportion accrue d’étudiants puissent vivre sur le campus en plus d’y étudier;</li>
+                            <li>veiller à ce que tous les étudiants de première année aient accès à des conseils personnalisés et des services de mentorat;</li>
+                            <li>procurer un milieu d’apprentissage propice au développement de tous les étudiants, y compris les étudiants de première génération et ceux en situation de handicap;</li>
+                            <li>fournir l’appui nécessaire aux étudiants autochtones pour qu’ils réussissent dans leurs études, tout en augmentant nos efforts de recrutement.</li>
+                        </ol>
+                        
+                        <p>Pour simplifier nos procédures et mieux adapter nos services aux besoins des étudiants dans les deux langues officielles, nous allons :</p>
+                        <ol class="objectif-list" start="16">
+                            <li>offrir davantage de services en ligne de qualité et, grâce à des communications efficaces, veiller à ce que l’information soit facilement accessible, claire et actuelle;</li>
+                            <li>évaluer les services de façon régulière et approfondie, en plus de solliciter davantage la participation des étudiants dans les processus décisionnels qui les touchent;</li>
+                            <li>améliorer le processus d’inscription, l’offre de cours et la planification des horaires;</li>
+                            <li>valoriser la contribution du personnel administratif à l’amélioration de l’expérience universitaire.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Objectif 2 -->
+                <div class="objectif-container">
+                    <div class="objectif-header">
+                        <i class="fas fa-flask"></i>
+                        <h3>Objectif 2: L’excellence en recherche</h3>
+                    </div>
+                    <div class="objectif-content">
+                        <p>Nous sommes une université à forte vocation de recherche, reconnue au pays et à l’étranger pour son expertise dans de nombreux domaines et comme une force émergente dans beaucoup d’autres. Les découvertes de nos chercheurs ont des retombées visibles aussi bien chez nous que dans le reste du monde.</p>
+                        <p>Au cours des prochaines années, ces attributs, combinés à des initiatives de collecte de fonds, permettront à l’USK GOMA de se classer parmi les cinq premières universités de la RDC en intensité de recherche.</p>
+                        
+                        <p>Pour y arriver, nous allons :</p>
+                        <ol class="objectif-list">
+                            <li>consolider nos domaines d’expertise et promouvoir de nouvelles possibilités de recherche concertée et le transfert des connaissances;</li>
+                            <li>cerner les domaines stratégiques qui sont porteurs d’avenir et qui nous positionneront comme partenaires dans les grands réseaux mondiaux de recherche;</li>
+                            <li>mettre à profit les liens exceptionnels que nous avons noués avec nos hôpitaux et instituts de recherche affiliés, les secteurs communautaire et privé, ainsi qu’avec les nombreux laboratoires de recherche qui nous entourent;</li>
+                            <li>faciliter les applications de la recherche et la diffusion des découvertes auprès d’un large public;</li>
+                            <li>favoriser l’interdisciplinarité comme catalyseur d’innovation;</li>
+                            <li>créer de nouvelles chaires de recherche universitaires et de nouvelles chaires dotées, en plus de continuer à bâtir des infrastructures de recherche de pointe;</li>
+                            <li>fournir tout l’appui possible aux chercheurs afin qu’ils obtiennent des subventions d’envergure des gouvernements, agences et fondations;</li>
+                            <li>continuer à investir dans nos axes de développement stratégiques (la RDC et le monde, la santé, la cybersociété et les sciences moléculaires), tout en veillant à développer nos forces émergentes;</li>
+                            <li>consolider nos forces existantes en politiques publiques et affaires internationales pour en faire des éléments de notre différenciation;</li>
+                            <li>appuyer les instituts interdisciplinaires dans leur mission d’enseignement et de recherche, en plus de faciliter leur gouvernance, pour qu’ils deviennent de véritables porte-étendards de nos efforts de recherche.</li>
+                        </ol>
+                        
+                        <p>L’avancement du savoir et de la recherche va de pair avec la croissance aux études supérieures et avec une expérience universitaire riche. En conséquence, nous allons :</p>
+                        <ol class="objectif-list" start="11">
+                            <li>appuyer nos programmes d’études supérieures par des recherches de pointe pour qu’ils s’insèrent dans les grands réseaux internationaux;</li>
+                            <li>poursuivre notre croissance en recrutant les meilleurs étudiants diplômés, en visant à ce que notre population étudiante aux études supérieures représente 16 % des effectifs en 2025 et 18 % en 2020;</li>
+                            <li>augmenter le nombre de post doctorants et leur confier un rôle accru dans notre mission éducative, tout en leur donnant des possibilités d’épanouissement à la hauteur de leurs attentes et de leurs talents;</li>
+                            <li>doter l’Université d’une bibliothèque de calibre mondial et créer des plateformes technologiques pour appuyer une université de recherche d’envergure internationale.</li>
+                        </ol>
+                        
+                        <p>Nous sommes conscients que pour atteindre ces objectifs, il nous faudra aménager davantage d’espaces de travail et de laboratoires, tout en continuant d’insister sur la qualité de l’expérience universitaire aux cycles supérieurs.</p>
+                    </div>
+                </div>
+
+                <!-- Objectif 3 -->
+                <div class="objectif-container">
+                    <div class="objectif-header">
+                        <i class="fas fa-language"></i>
+                        <h3>Objectif 3: Bilinguisme : un avantage concurrentiel au coeur de notre mission</h3>
+                    </div>
+                    <div class="objectif-content">
+                        <p>Si notre université est devenue un établissement unique et reconnu internationalement, c’est grâce notamment à son bilinguisme et au rôle spécial qu’elle joue au sein des communautés francophones de la RDC et de la planète entière.</p>
+                        <p>Nos recherches, nos programmes d’études et nos liens privilégiés avec les communautés francophones assurent la promotion et le renforcement de la langue et de la culture française sur les plans national et international. Afin de bâtir sur ces acquis et de renforcer nos liens avec la francophonie, nous allons :</p>
+                        
+                        <ol class="objectif-list">
+                            <li>recruter davantage d’étudiants francophones et, ainsi, améliorer notre équilibre linguistique;</li>
+                            <li>encourager encore plus la recherche sur la francophonie;</li>
+                            <li>regrouper nos forces et donner une plus grande visibilité à la francophonie sur le campus;</li>
+                            <li>doter de nouvelles chaires, en plus de valoriser la recherche et la diffusion des connaissances en français;</li>
+                            <li>élargir l’accès aux études en français et développer la vie culturelle, sociale et scientifique en français sur le campus.</li>
+                        </ol>
+                        
+                        <p>Pour remplir notre mission, nous augmenterons la proportion d’étudiants francophones sur le campus. Nous visons qu’un tiers de nos étudiants soient francophones. Un tel objectif pourrait exiger que nous limitions la croissance de notre population étudiante globale au cours des prochaines années, tout en privilégiant le recrutement des meilleurs étudiants francophones et anglophones, particulièrement ceux qui expriment le désir de parfaire leurs compétences en langue seconde.</p>
+                        
+                        <p>Notre bilinguisme s’exprime d’abord et avant tout par un environnement qui promeut les grandes cultures fondatrices du Canada et qui favorise le respect, l’ouverture et le dialogue entre les cultures. Cet environnement nous permet d’être un acteur important dans l’établissement de politiques publiques en matière de langues officielles et d’aménagement linguistique, ainsi que dans le domaine de l’apprentissage de la langue seconde.</p>
+                        
+                        <p>Nous favoriserons également les échanges interculturels, en plus d’outiller les membres de notre communauté universitaire pour qu’ils puissent vivre, travailler et étudier dans les deux langues officielles. Contribuer au bilinguisme implique aussi un engagement plus grand dans la recherche dans ce domaine, en particulier dans le développement d’approches novatrices, motivantes, dynamiques et efficaces pour l’apprentissage de la langue seconde.</p>
+                        
+                        <p>Afin de mettre pleinement en valeur l’avantage extraordinaire que nous confère notre statut de plus grande université bilingue (français-anglais) au monde, nous allons :</p>
+                        
+                        <ol class="objectif-list" start="6">
+                            <li>faciliter l’acquisition de la langue seconde;</li>
+                            <li>augmenter à 3 500 le nombre d’inscriptions dans nos programmes d’immersion en français, soit 10 % de nos effectifs actuels au premier cycle;</li>
+                            <li>créer un régime innovateur d’appui à l’apprentissage de l’anglais pour les francophones;</li>
+                            <li>reconnaître le niveau de bilinguisme sur le diplôme;</li>
+                            <li>favoriser la recherche dans le domaine de l’acquisition, du développement et de l’évaluation de la langue seconde, et établir des programmes d’études supérieures à cette fin.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Objectif 4 -->
+                <div class="objectif-container">
+                    <div class="objectif-header">
+                        <i class="fas fa-globe-africa"></i>
+                        <h3>Objectif 4: Former des leaders par l’internationalisation</h3>
+                    </div>
+                    <div class="objectif-content">
+                        <p>Notre appartenance à plusieurs réseaux internationaux contribue au développement de nos programmes d’enseignement et de recherche et à l’essor de nos talents. Notre bilinguisme et notre diversité culturelle nous ouvrent le monde. Ces forces nous permettent de jouer un rôle de premier plan dans le mouvement de mondialisation de la formation et de la recherche universitaires, tout en helping nos étudiants à devenir de véritables citoyens du monde.</p>
+                        
+                        <p>Les effets de la mondialisation se font déjà sentir dans toutes les dimensions de notre vie. Pour améliorer encore plus l’expérience étudiante et atteindre de nouveaux sommets en recherche et en création de savoir, nous devons viser à internationaliser davantage nos programmes d’enseignement et de recherche et à conclure des partenariats fructueux et stratégiques avec les organismes internationaux qui nous entourent, y compris les missions étrangères.</p>
+                        
+                        <p>Afin d’internationaliser davantage notre campus, nous allons :</p>
+                        
+                        <ol class="objectif-list">
+                            <li>accueillir un plus grand nombre d’étudiants et de professeurs étrangers;</li>
+                            <li>offrir l’occasion à davantage d’étudiants d’apprendre une langue étrangère et de participer à des activités ailleurs dans le monde, notamment par l’entremise de notre nouveau Centre d’engagement mondial et communautaire;</li>
+                            <li>accroître nos activités de recrutement dans certaines régions du monde, intégrer les réseaux internationaux de mobilité et créer des programmes d’études conjoints dans des domaines stratégiques et complémentaires à l’échelle internationale;</li>
+                            <li>recruter les esprits les plus brillants pour enrichir notre communauté de chercheurs de haut calibre, en particulier en appuyant davantage nos grands groupes de recherche et en attirant les meilleurs étudiants étrangers;</li>
+                            <li>animer la vie scientifique et intellectuelle en encouraging la mobilité des membres de notre communauté, en particulier pour le corps professoral, et en devenant un endroit privilégié pour la tenue d’événements internationaux.</li>
+                        </ol>
+                        
+                        <p>À mesure que l’Université intensifiera son rayonnement sur le plan international et affirmera son engagement dans l’action sociale et communautaire, les étudiants seront de mieux en mieux préparés à œuvrer dans un vaste éventail de domaines partout dans le monde et à devenir de véritables citoyens du monde. Cette composante de l’expérience étudiante nous aidera à développer une culture globale de connaissance du monde et de reconnaissance de l’autre, chez nous comme ailleurs. D’ici 2020, nous allons :</p>
+                        
+                        <ol class="objectif-list" start="6">
+                            <li>doubler le nombre d’étudiants étrangers;</li>
+                            <li>offrir un appui financier compétitif aux meilleurs étudiants diplômés étrangers;</li>
+                            <li>créer un programme de chercheurs invités pour accueillir des experts de partout dans le monde sur le campus;</li>
+                        </ol>
+                        
+                        <p>Ces augmentations seront réalisées en tenant compte des parties prenantes et des segmentations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Université Simon Kimbangu</h4>
+                    <p>Nord Kivu, Goma
+Entrée President</p>
+                    <p>info@usk-goma.edu</p>
+                    <p>+243 843 785 325</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        
+                       
+                        <li><a href="admissions.html">Admissions</a></li>
+                         <li><a href="facultes.html">faculté</a></li>
+                         <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Suivez-nous</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Université Simon Kimbangu de Goma - Tous droits réservés</p>
+                <div class="legal-links">
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Confidentialité</a>
+                    <a href="#">Cookies</a>
+                    <a href="#">Accessibilité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.querySelector('.nav-list');
+        
+        mobileMenu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

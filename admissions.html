@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions - Université Simon Kimbangu de Goma</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Le CSS reste exactement le même */
+        /* Variables CSS */
+:root {
+    --primary-color: #003366; /* Bleu universitaire */
+    --secondary-color: #FFD700; /* Or */
+    --accent-color: #E6B800;
+    --light-color: #F8F9FA;
+    --dark-color: #212529;
+    --gray-color: #6C757D;
+    --white-color: #FFFFFF;
+    --font-title: 'Playfair Display', serif;
+    --font-text: 'Roboto', sans-serif;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-text);
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    border: 2px solid var(--secondary-color);
+}
+
+.btn-secondary:hover {
+    background-color: transparent;
+    color: var(--secondary-color);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.btn-small {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+}
+
+.section-title {
+    font-family: var(--font-title);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    text-align: center;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    margin: 15px auto;
+}
+
+/* Barre de navigation */
+.navbar {
+    background-color: var(--white-color);
+    box-shadow: var(--box-shadow);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.nav-list {
+    display: flex;
+}
+
+.nav-list li {
+    margin-left: 30px;
+}
+
+.nav-list a {
+    font-weight: 500;
+    color: var(--dark-color);
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-list a:hover {
+    color: var(--primary-color);
+}
+
+.nav-list a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: var(--transition);
+}
+
+.nav-list a:hover::after {
+    width: 100%;
+}
+
+.nav-list .active a {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.nav-list .active a::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    transition: var(--transition);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    min-height: 600px;
+    background: url('images/WhatsApp Image 2025-08-08 at 18.38.12_fe1fba82.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: 70px; /* Pour compenser la navbar fixe */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 51, 102, 0.6);
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+    color: var(--white-color);
+    max-width: 800px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-family: var(--font-title);
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Features Section */
+.features {
+    padding: 80px 0;
+    background-color: var(--white-color);
+}
+
+.features .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.feature-card {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 8px;
+    transition: var(--transition);
+    box-shadow: var(--box-shadow);
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.feature-card i {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-family: var(--font-title);
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+/* News Preview Section */
+.news-preview {
+    padding: 80px 0;
+    background-color: var(--light-color);
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.news-card {
+    background-color: var(--white-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.news-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 20px;
+}
+
+.news-content h3 {
+    font-family: var(--font-title);
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.news-date {
+    color: var(--gray-color);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.read-more {
+    display: inline-block;
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-top: 15px;
+    transition: var(--transition);
+}
+
+.read-more:hover {
+    color: var(--secondary-color);
+}
+
+/* Faculties Preview Section */
+.faculties-preview {
+    padding: 80px 0;
+    background-color: var(--white-color);
+}
+
+.faculties-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.faculty-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    height: 300px;
+}
+
+.faculty-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.faculty-card:hover img {
+    transform: scale(1.05);
+}
+
+.faculty-card h3 {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    width: 100%;
+    padding: 0 20px;
+    color: var(--white-color);
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.faculty-card .btn-small {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 60px 0 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-col h4 {
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--secondary-color);
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    transition: var(--transition);
+}
+
+.footer-col ul li a:hover {
+    color: var(--secondary-color);
+    padding-left: 5px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.legal-links {
+    display: flex;
+    gap: 20px;
+}
+
+.legal-links a {
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.legal-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* Styles pour les autres pages (structure similaire) */
+.page-header {
+    height: 300px;
+    background: url('images/WhatsApp Image 2025-08-08 at 18.38.12_fe1fba82.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: 70px;
+}
+
+.page-header .container {
+    position: relative;
+    z-index: 1;
+    color: var(--white-color);
+}
+
+.page-header h1 {
+    font-family: var(--font-title);
+    font-size: 3rem;
+}
+
+.page-content {
+    padding: 60px 0;
+}
+
+/* Styles responsifs */
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+    
+    .features .container {
+        flex-direction: column;
+    }
+    
+    .feature-card {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .nav-list {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: var(--white-color);
+        flex-direction: column;
+        align-items: center;
+        padding-top: 40px;
+        transition: var(--transition);
+    }
+    
+    .nav-list.active {
+        left: 0;
+    }
+    
+    .nav-list li {
+        margin: 15px 0;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .legal-links {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .news-grid, .faculties-grid {
+        grid-template-columns: 1fr;
+    }
+}
+        /* Tout le CSS d'origine de index.html */
+        /* Ajout de quelques styles supplémentaires pour la page d'admissions */
+        
+        .admission-process {
+            padding: 60px 0;
+            background-color: var(--white-color);
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .process-step {
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+            position: relative;
+        }
+        
+        .process-step-number {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .requirements-section {
+            padding: 60px 0;
+            background-color: var(--light-color);
+        }
+        
+        .faculty-requirements {
+            margin-top: 40px;
+        }
+        
+        .faculty-box {
+            background-color: var(--white-color);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .faculty-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-family: var(--font-title);
+        }
+        
+        .faculty-box ul {
+            margin-left: 20px;
+        }
+        
+        .faculty-box li {
+            margin-bottom: 8px;
+        }
+        
+        .important-dates {
+            padding: 60px 0;
+            background-color: var(--white-color);
+        }
+        
+        .dates-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+        
+        .dates-table th, .dates-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .dates-table th {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+        }
+        
+        .dates-table tr:hover {
+            background-color: rgba(0, 51, 102, 0.05);
+        }
+        
+        .tuition-section {
+            padding: 60px 0;
+            background-color: var(--light-color);
+        }
+        
+        .tuition-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .tuition-card {
+            background-color: var(--white-color);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+        }
+        
+        .tuition-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .tuition-amount {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .contact-admissions {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+
+
+        /* Styles pour le menu déroulant */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--white-color);
+    min-width: 200px;
+    box-shadow: var(--box-shadow);
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: var(--transition);
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
+    color: var(--dark-color);
+    transition: var(--transition);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding-left: 25px;
+}
+
+/* Styles pour le menu déroulant en mode mobile */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background-color: transparent;
+        display: none;
+        margin-top: 10px;
+    }
+    
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+    
+    .dropdown-menu a {
+        padding: 10px 15px 10px 30px;
+        border-bottom: none;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/WhatsApp Image 2025-08-24 at 11.18.15_06f16f93.jpg" alt="Logo de l'Université Simon Kimbangu">
+                <span>Université Simon Kimbangu de Goma</span>
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-list">
+                <li class="dropdown active">
+                    <a href="index.html">Accueil</a>
+                    <ul class="dropdown-menu">
+                         <li><a href="historique.html">Historique</a></li>
+                        <li><a href="missions.html">Missions</a></li>
+                        <li><a href="vision.html">Vision</a></li>
+                        <li><a href="devise.html">valeurs</a></li>
+                        <li><a href="objectifs.html">Objectifs</a></li>
+                        <li><a href="strategies.html">Stratégies</a></li>
+                        
+                    </ul>
+                </li>
+              
+               <li class="dropdown active">
+                    <a href="#">Admissions</a>
+                    <ul class="dropdown-menu">
+                         <li><a href="facultes.html">Critères d’admission à la faculté</a></li>
+                       <li><a href="#Processus">Processus d’admission</a></li>
+                         <li><a href="#date">Dates importantes</a></li>
+                         <li><a href="#fees">Frais de scolarité</a></li>
+                        
+                    </ul>
+                </li>
+                  <li class="dropdown active">
+                    <a href="#">faculté</a>
+                    <ul class="dropdown-menu">
+                      <li><h5><a href="#">Faculté de Droit</a></li>
+                       <li><h5><a href="#">Faculté de Médecine</a></li>
+                       <li><h5><a href="#">Techniques médicales</a></li>
+                       <li><h5><a href="#">Faculté des Sciences sociales, politiques et administratives</a></li>
+                       <li><h5><a href="#">Faculté des Sciences économiques et de gestion</a></li>                                     <li><h5><a href="#">Faculté des sciences informatiques</a></li>
+                       <li><h5><a href="#">Faculté de Santé publique</a></li>                                       <li><h5><a href="#">Faculté de théologie</a></li>
+                       <li><h5><a href="#">Sciences de l’éducation</a></li>
+                       <li><h5><a href="#">Bâtiment et construction</a></li>
+                         <li><a href="#">Agrobusiness </a></li>
+                          <li><a href="#">Sciences agronomiques</a></li>
+                              <li><a href="#">Tourisme</a></li>
+                                     <li><a href="#">Electro mécanique</a></li>
+                                              <li><a href="#">Technologie et informatique </a></li>
+                                                                   <li><a href="#"></a></li>
+                        
+                        
+                    </ul>
+                </li>
+                <li><a href="news.html">Actualités</a></li>
+                
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- En-tête de page -->
+    <header class="page-header">
+        <div class="page-header-overlay"></div>
+        <div class="container">
+            <h1>Admissions</h1>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <main class="page-content">
+        <section id="Processus"  class="admission-process">
+            <div class="container">
+                <h2 class="section-title">Processus d'admission</h2>
+                <p>L'Université Simon Kimbangu de Goma accueille des étudiants de divers horizons qui démontrent un potentiel académique et un engagement envers nos valeurs. Notre processus d'admission est conçu pour identifier les individus talentueux qui prospéreront dans notre communauté académique.</p>
+                
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="process-step-number">1</div>
+                        <h3>Soumission de la candidature</h3>
+                        <p>Complétez le formulaire de candidature en ligne et soumettez tous les documents requis avant la date limite.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-step-number">2</div>
+                        <h3>Examen des documents</h3>
+                        <p>Notre comité d'admission examine attentivement tous les documents et qualifications soumis.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-step-number">3</div>
+                        <h3>Examen d'entrée</h3>
+                        <p>Les candidats qualifiés seront invités à passer notre examen d'entrée (spécifique à chaque faculté).</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-step-number">4</div>
+                        <h3>Décision d'admission</h3>
+                        <p>Les candidats retenus recevront des lettres d'admission avec des instructions d'inscription.</p>
+                    </div>
+                </div>
+                
+                <div class="text-center" style="margin-top: 40px;">
+                    <a href="https://docs.google.com/forms/d/1qkRFig4ioaQcwkhkngjvkY99rKPMSH62wCI6wDU7PUM" class="btn btn-primary">Commencer votre candidature</a>
+                </div>
+            </div>
+        </section>
+
+       
+
+        <section id="date" class="important-dates">
+            <div class="container">
+                <h2 class="section-title">Dates importantes</h2>
+                
+                <table class="dates-table">
+                    <thead>
+                        <tr>
+                            <th>Événement</th>
+                            <th>Date</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Période de candidature ouvre</td>
+                            <td>1 mars 2025</td>
+                            <td>Candidatures en ligne disponibles</td>
+                        </tr>
+                        <tr>
+                            <td>Date limite de candidature</td>
+                            <td>30 juin 2025</td>
+                            <td>Tous les documents doivent être soumis</td>
+                        </tr>
+                        <tr>
+                            <td>Examens d'entrée</td>
+                            <td>15-20 juillet 2025</td>
+                            <td>Dates variables selon la faculté</td>
+                        </tr>
+                        <tr>
+                            <td>Décisions d'admission publiées</td>
+                            <td>15 août 2025</td>
+                            <td>Par email et portail en ligne</td>
+                        </tr>
+                        <tr>
+                            <td>Semaine d'intégration</td>
+                            <td>2-6 septembre 2025</td>
+                            <td>Obligatoire pour tous les nouveaux étudiants</td>
+                        </tr>
+                        <tr>
+                            <td>Début des cours</td>
+                            <td>9 septembre 2025</td>
+                            <td>Premier jour de l'année académique</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="fees" class="tuition-section">
+            <div class="container">
+                <h2 class="section-title">Frais de scolarité</h2>
+                <p>L'Université Simon Kimbangu de Goma s'engage à rendre l'éducation de qualité accessible. Nos frais de scolarité sont parmi les plus compétitifs de la région.</p>
+                
+                <div class="tuition-cards">
+                    <div class="tuition-card">
+                        <h3>Programmes de premier cycle</h3>
+                        <div class="tuition-amount">---</div>
+                        <p>Tous les programmes de licence</p>
+                        <p>Plans de paiement disponibles</p>
+                    </div>
+                    <div class="tuition-card">
+                        <h3>Programmes de cycle supérieur</h3>
+                        <div class="tuition-amount">---</div>
+                        <p>Programmes de master</p>
+                        <p>Frais de recherche peuvent s'appliquer</p>
+                    </div>
+                    <div class="tuition-card">
+                        <h3>Frais supplémentaires</h3>
+                        <ul style="text-align: left;">
+                            <li>Inscription </li>
+                            <li>Technologie </li>
+                            <li>Laboratoire </li>
+                            <li>Assurance santé </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </section>
+
+        <section class="contact-admissions">
+            <div class="container">
+                <h2 class="section-title">Des questions?</h2>
+                <p>Notre équipe des admissions est là pour vous aider tout au long du processus de candidature.</p>
+                <p><strong>Email :</strong>uskgoma@gmail.com</p>
+                <p><strong>Téléphone :</strong> +243 843 785 325</p>
+                <p><strong>Heures de bureau :</strong> Lundi-Vendredi, 8h00 - 16h00</p>
+                <a href="contact.html" class="btn btn-primary">Contacter les admissions</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Université Simon Kimbangu de Goma</h4>
+                    <p>Nord Kivu, Goma
+Entrée President</p>
+                    <p>uskgoma@gmail.com</p>
+                    <p>+243 843 785 325</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                    
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="#">faculté</a></li>
+                         <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+
+
+                    <h4>Suivez-nous</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Université Simon Kimbangu de Goma - Tous droits réservés</p>
+                <div class="legal-links">
+                    <a href="#">Politique de confidentialité</a>
+                    <a href="#">Conditions d'utilisation</a>
+                    <a href="#">Accessibilité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

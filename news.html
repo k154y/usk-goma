@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualités & Événements - Université Simon Kimbangu de Goma</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Tout le CSS d'origine de index.html */
+        /* Styles supplémentaires pour la page d'actualités */
+        
+        .news-main {
+            padding: 60px 0;
+            background-color: var(--white-color);
+        }
+        
+        .news-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+        
+        .featured-article {
+            margin-bottom: 50px;
+        }
+        
+        .featured-article img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .article-date {
+            color: var(--gray-color);
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .article-content {
+            line-height: 1.8;
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+        }
+        
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .other-articles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .sidebar {
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: 8px;
+            height: fit-content;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+        
+        .sidebar-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        
+        .upcoming-events li {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .event-date {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .quick-links a {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+            transition: var(--transition);
+        }
+        
+        .quick-links a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+        
+        .news-categories a {
+            display: block;
+            margin-bottom: 10px;
+            padding: 8px 15px;
+            background-color: var(--white-color);
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        
+        .news-categories a:hover {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+        }
+        
+        .newsletter-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .newsletter-form button {
+            width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .news-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+
+        /* Styles pour le menu déroulant */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--white-color);
+    min-width: 200px;
+    box-shadow: var(--box-shadow);
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: var(--transition);
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
+    color: var(--dark-color);
+    transition: var(--transition);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding-left: 25px;
+}
+
+/* Styles pour le menu déroulant en mode mobile */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background-color: transparent;
+        display: none;
+        margin-top: 10px;
+    }
+    
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+    
+    .dropdown-menu a {
+        padding: 10px 15px 10px 30px;
+        border-bottom: none;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/WhatsApp Image 2025-08-24 at 11.18.15_06f16f93.jpg" alt="Logo de l'Université Simon Kimbangu">
+                <span>Université Simon Kimbangu de Goma</span>
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-list">
+                <li class="dropdown active">
+                    <a href="index.html">Accueil</a>
+                    <ul class="dropdown-menu">
+                         <li><a href="historique.html">Historique</a></li>
+                        <li><a href="missions.html">Missions</a></li>
+                        <li><a href="vision.html">Vision</a></li>
+                        <li><a href="devise.html">valeurs</a></li>
+                        <li><a href="objectifs.html">Objectifs</a></li>
+                        <li><a href="strategies.html">Stratégies</a></li>
+                        
+                    </ul>
+                </li>
+              
+       
+                
+                <li class="dropdown active">
+                    <a href="#">Admissions</a>
+                    <ul class="dropdown-menu">
+                         <li><a href="facultes.html">Critères d’admission à la faculté</a></li>
+                       <li><a href="admissions.html#Processus">Processus d’admission</a></li>
+                         <li><a href="admissions.html#date">Dates importantes</a></li>
+                         <li><a href="admissions.html#fees">Frais de scolarité</a></li>
+                        
+                    </ul>
+                </li>
+
+               <li class="dropdown active">
+                    <a href="#">faculté</a>
+                    <ul class="dropdown-menu">
+                      <li><h5><a href="#">Faculté de Droit</a></li>
+                       <li><h5><a href="#">Faculté de Médecine</a></li>
+                       <li><h5><a href="#">Techniques médicales</a></li>
+                       <li><h5><a href="#">Faculté des Sciences sociales, politiques et administratives</a></li>
+                       <li><h5><a href="#">Faculté des Sciences économiques et de gestion</a></li>                                     <li><h5><a href="#">Faculté des sciences informatiques</a></li>
+                       <li><h5><a href="#">Faculté de Santé publique</a></li>                                       <li><h5><a href="#">Faculté de théologie</a></li>
+                       <li><h5><a href="#">Sciences de l’éducation</a></li>
+                       <li><h5><a href="#">Bâtiment et construction</a></li>
+                         <li><a href="#">Agrobusiness </a></li>
+                          <li><a href="#">Sciences agronomiques</a></li>
+                              <li><a href="#">Tourisme</a></li>
+                                     <li><a href="#">Electro mécanique</a></li>
+                                              <li><a href="#">Technologie et informatique </a></li>
+                                                                   <li><a href="#"></a></li>
+                        
+                        
+                    </ul>
+                </li>
+              
+
+                <li class="active"><a href="news.html">Actualités</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- En-tête de page -->
+    <header class="page-header">
+        <div class="page-header-overlay"></div>
+        <div class="container">
+            <h1>Actualités & Événements</h1>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <main class="news-main">
+        <div class="container">
+            <div class="news-container">
+                <div class="main-content">
+                    <article class="featured-article">
+                        <img src="https://images.pexels.com/photos/8093039/pexels-photo-8093039.jpeg" alt="Cérémonie de remise des diplômes USK">
+                        <div class="article-date">15 juin 2025</div>
+                        <h2>USK Goma célèbre sa 15ème cérémonie de remise des diplômes</h2>
+                        <div class="article-content">
+                            <p>L'Université Simon Kimbangu de Goma a tenu sa 15ème cérémonie de remise des diplômes le 10 juin 2025, avec plus de 500 étudiants recevant des diplômes dans diverses disciplines. La cérémonie était présidée par le Chancelier de l'Université et a été suivie par des officiels gouvernementaux, du personnel académique et des membres de famille fiers.</p>
+                            
+                            <p>La major de promotion de cette année, Marie Kanyere de la Faculté de Médecine, a prononcé un discours inspirant sur le rôle de l'université dans la formation des futurs leaders de la République Démocratique du Congo. "L'éducation que nous avons reçue ici va au-delà des manuels scolaires - il s'agit de service à nos communautés et de construction nationale", a-t-elle déclaré.</p>
+                            
+                            <img src="images/valedictorian.jpg" alt="Major de promotion Marie Kanyere">
+                            
+                            <p>La cérémonie a également vu le lancement du nouveau Centre d'Entrepreneuriat de l'université, qui fournira formation et ressources aux diplômés souhaitant créer leur propre entreprise. "Nous nous engageons non seulement à éduquer les étudiants, mais à les autonomiser pour créer des emplois et des opportunités", a déclaré le Professeur Laurent Mumbere, Vice-Chancelier de l'université.</p>
+                            
+                            <p>Une reconnaissance spéciale a été donnée à la Faculté de Médecine pour avoir atteint un taux de réussite de 100% aux examens du conseil médical national pour la troisième année consécutive. Le doyen de la faculté a attribué ce succès à l'accent mis par l'université sur la formation pratique et les initiatives de santé communautaire.</p>
+                        </div>
+                    </article>
+                    
+                    <h2 class="section-title">Dernières actualités</h2>
+                    
+                    <div class="other-articles">
+                        <article class="news-card">
+                            <img src="images/IMG-20250824-WA0024[1].jpg" alt="Symposium de recherche">
+                            <div class="news-content">
+                                <h3>Le symposium annuel de recherche attire des chercheurs internationaux</h3>
+                                <p class="news-date">28 mai 2025</p>
+                                <p>L'université a accueilli son 7ème symposium annuel de recherche avec des participants de 15 pays présentant des études révolutionnaires.</p>
+                                <a href="#" class="read-more">Lire la suite</a>
+                            </div>
+                        </article>
+                        
+                        <article class="news-card">
+                            <img src="images/WhatsApp Image 2025-08-24 at 11.07.32_4f020ea4.jpg" alt="Intervention sanitaire communautaire">
+                            <div class="news-content">
+                                <h3>Des étudiants en médecine mènent une intervention sanitaire rurale</h3>
+                                <p class="news-date">30 avril 2025</p>
+                                <p>Plus de 100 étudiants en médecine ont fourni des services de santé gratuits aux communautés éloignées de la province du Nord-Kivu.</p>
+                                <a href="#" class="read-more">Lire la suite</a>
+                            </div>
+                        </article>
+                    </div>
+                   
+                    <div class="text-center" style="margin-top: 40px;">
+                        <a href="#" class="btn btn-outline">Voir tous les articles d'actualités</a>
+                    </div>
+                </div>
+                
+                <aside class="sidebar">
+                    <div class="sidebar-section">
+                        <h3>Événements à venir</h3>
+                        <ul class="upcoming-events">
+                            <li>
+                                <div class="event-date">25 juin 2025</div>
+                                <strong>Journée portes ouvertes</strong>
+                                <p>Les futurs étudiants visitent le campus et rencontrent la faculté</p>
+                            </li>
+                            <li>
+                                <div class="event-date">5-7 juillet 2025</div>
+                                <strong>Conférence internationale sur les études africaines</strong>
+                                <p>Discours principal par Dr. Amina Diallo du Sénégal</p>
+                            </li>
+                            <li>
+                                <div class="event-date">15 juillet 2025</div>
+                                <strong>Date limite de candidature</strong>
+                                <p>Pour la rentrée de septembre 2025</p>
+                            </li>
+                            <li>
+                                <div class="event-date">10 août 2025</div>
+                                <strong>Week-end de retrouvailles des anciens élèves</strong>
+                                <p>Promotions 2005, 2010 et 2015</p>
+                            </li>
+                        </ul>
+                        <a href="#" class="btn btn-small" style="margin-top: 15px; display: inline-block;">Calendrier complet des événements</a>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <h3>Liens rapides</h3>
+                        <div class="quick-links">
+                            <a href="admissions.html">Conditions d'admission</a>
+                            <a href="doc/CamScanner 08-24-2025 11.59.pdf">Annuaire de la faculté</a>
+                            <a href="#">Calendrier académique</a>
+                            <a href="#">Portail étudiant</a>
+                            <a href="#">Plan du campus</a>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <h3>Catégories d'actualités</h3>
+
+                        <div class="news-categories">
+                            <a href="gallery.html">Galerie</a>
+                            <a href="doc/COMMUNIQUE...pdf">Annonces universitaires</a>
+                            <a href="doc/PAIEMENT EN TRANCHE 2023-2024 .pdf">Frais de scolarité</a>
+                           <!-- <a href="#">Vie étudiante</a>
+                            <a href="#">Recherche & Innovation</a>
+                            <a href="#">Engagement communautaire</a>
+                            <a href="#">Partenariats internationaux</a>
+                            <a href="#">Actualités des anciens élèves</a>-->
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <h3>Abonnez-vous à la newsletter</h3>
+                        <form class="newsletter-form">
+                            <input type="text" placeholder="Votre nom">
+                            <input type="email" placeholder="Votre email">
+                            <button type="submit" class="btn btn-primary">S'abonner</button>
+                        </form>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Université Simon Kimbangu de Goma</h4>
+                    <p>Nord Kivu, Goma
+Entrée President</p>
+                    <p>uskgoma@gmail.com</p>
+                    <p>+243 843 785 325</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                  
+                        <li><a href="admissions.html">Admissions</a></li>
+                         <li><a href="">faculté</a></li>
+                         <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Suivez-nous</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Université Simon Kimbangu de Goma - Tous droits réservés</p>
+                <div class="legal-links">
+                    <a href="#">Politique de confidentialité</a>
+                    <a href="#">Conditions d'utilisation</a>
+                    <a href="#">Accessibilité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
