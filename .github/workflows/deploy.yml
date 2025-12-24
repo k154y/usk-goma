@@ -19,5 +19,6 @@ jobs:
           host: ${{ secrets.HOSTINGER_HOST }}
           username: ${{ secrets.HOSTINGER_USER }}
           key: ${{ secrets.HOSTINGER_KEY }}
+          port: 65002         # <- Add your custom SSH port here
           source: "."
           target: "public_html"
